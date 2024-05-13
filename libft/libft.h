@@ -6,7 +6,7 @@
 /*   By: mranaivo <mranaivo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 12:45:28 by mranaivo          #+#    #+#             */
-/*   Updated: 2024/05/11 12:05:09 by mranaivo         ###   ########.fr       */
+/*   Updated: 2024/05/12 11:22:41 by mranaivo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,12 @@
 
 typedef struct s_list
 {
-	void			*content;
+	char			*content;
 	struct s_list	*next;
 }			t_list;
 //BONUS
 
-t_list	*ft_lstnew(void *content);
+t_list	*ft_lstnew(char *content);
 void	ft_lstadd_front(t_list **lst, t_list *newv);
 void	ft_lstadd_back(t_list **list, t_list *newv);
 void	ft_lstdelone(t_list *lst, void (*del)(void *));
