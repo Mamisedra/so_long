@@ -7,7 +7,7 @@ FLAGS	= -Wall -Wextra -Werror -g
 RM		= rm -rf
 MLX		= -L./minilibx-linux -lmlx -lXext -lX11 -lm
 
-SRCS	= interface.c main.c\
+SRCS	= interface.c main.c initMap.c getMap.c\
 		$(GNL_DIR)/get_next_line_utils_bonus.c $(GNL_DIR)/get_next_line_bonus.c
 OBJS	= ${SRCS:.c=.o}
 

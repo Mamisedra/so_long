@@ -13,15 +13,13 @@ SRCSB = ft_lstnew_bonus.c ft_lstsize_bonus.c ft_lstlast_bonus.c\
 		ft_lstdelone_bonus.c ft_lstclear_bonus.c\
 		ft_lstiter_bonus.c ft_lstmap_bonus.c\
 
-SRCS = ${SRCS1} ${SRCS2}
+SRCS = ${SRCS1} ${SRCS2} ${SRCSB}
 
 CC = gcc
 
 FLAGS = -Wall -Wextra -Werror
 
 OBJS = ${SRCS:.c=.o}
-
-OBJSB = ${SRCSB:.c=.o}
 
 RM = rm -rf
 
@@ -38,11 +36,8 @@ ${NAME} : ${OBJS}
 
 all : ${NAME}
 
-bonus : ${OBJS} ${OBJSB}
-	@${AR} ${NAME} ${OBJS} ${OBJSB}
-
 clean :
-	@${RM} ${OBJS} ${OBJSB}
+	@${RM} ${OBJS}
 
 fclean : clean
 	@${RM} ${NAME}
