@@ -1,37 +1,57 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   error_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mranaivo <mranaivo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/12 14:06:56 by mranaivo          #+#    #+#             */
-/*   Updated: 2024/05/11 10:51:07 by mranaivo         ###   ########.fr       */
+/*   Created: 2024/05/19 15:29:56 by mranaivo          #+#    #+#             */
+/*   Updated: 2024/05/19 17:17:12 by mranaivo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "so_long.h"
 
-int	ft_printf(const char *str, ...)
+int	ft_countchar(char *str, char c)
 {
-	va_list	arg;
-	int		i;
-	int		len;
+	int	i;
+	int	cpt;
+
+	i = 0;
+	cpt = 0;
+	while (str[i] != '\0')
+	{
+		if (str[i] == c)
+			cpt++;
+		i++;
+	}
+	return (cpt);
+}
+
+int	ft_check_intru(char *str)
+{
+	int	i;
+	int len;
 
 	i = 0;
 	len = 0;
-	va_start(arg, str);
 	while (str[i] != '\0')
 	{
-		if (str[i] == '%' && ft_check_suiv(str[i + 1]))
+		if (str[i] == '\n')
 		{
+			len--;
 			i++;
-			len += ft_check_print(str[i], arg);
 		}
-		else
-			len += ft_printchar(str[i]);
+		if (str[i] != '0' || str[i] != 'C' || str[i] != 'E' || str[i] != '1' || str[i] != 'P')
+			return (-1);
 		i++;
+		len ++;
 	}
-	va_end(arg);
 	return (len);
+}
+void	ft_freemap(int i, char **map)
+{
+	while (i > 0)
+		free(map[--i]);
+	free(map);
 }

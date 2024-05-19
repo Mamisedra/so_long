@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   interface.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mranaivo <mranaivo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mranaivo <mranaivo@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 11:49:20 by mranaivo          #+#    #+#             */
-/*   Updated: 2024/05/18 03:13:12 by mranaivo         ###   ########.fr       */
+/*   Updated: 2024/05/19 07:50:17 by mranaivo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,21 @@ typedef struct s_move
 	int	y;
 }	t_move;
 
+typedef struct s_image
+{
+	void	*none;
+	void	*finish;
+	void	*player_G;
+	void	*player_D;
+	void	*skills;
+	void	*stop;
+}	t_image;
+
 int		program_quit(t_data *data);
 int		ft_escap(int key, t_data *data);
 int 	answer_key(int keysym, t_data *data);
 void 	ft_startinit(t_data *data);
 int		input_image(t_data *data);
-int	move_image(t_data *data, void *image, int key);
+int		move_image(t_data *data, void *image, int key);
 
 #endif

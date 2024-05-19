@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   initMap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mranaivo <mranaivo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mranaivo <mranaivo@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 23:06:16 by mranaivo          #+#    #+#             */
-/*   Updated: 2024/05/18 03:13:11 by mranaivo         ###   ########.fr       */
+/*   Updated: 2024/05/18 09:30:59 by mranaivo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,22 +15,22 @@
 
 int	input_image(t_data *data)
 {
-	void	*stop;
-	void	*skills;
-	void	*player_D;
-	void	*player_G;
+	t_move	*move;
 	void	*none;
 	void	*finish;
+	void	*player_G;
+	void	*player_D;
+	void	*skills;
+	void	*stop;
+	int		img_height;
 	int		img_width;
-	int		img_heigth;
-	t_move	*move;
 
-	none = mlx_xpm_file_to_image(data->mlx_ptr, "./xpmimg/none.xpm", &img_width, &img_heigth);
-	stop = mlx_xpm_file_to_image(data->mlx_ptr, "./xpmimg/stop.xpm", &img_width, &img_heigth);
-	skills = mlx_xpm_file_to_image(data->mlx_ptr, "./xpmimg/skills.xpm", &img_width, &img_heigth);
-	finish = mlx_xpm_file_to_image(data->mlx_ptr, "./xpmimg/finish.xpm", &img_width, &img_heigth);
-	player_D = mlx_xpm_file_to_image(data->mlx_ptr, "./xpmimg/player_D.xpm", &img_width, &img_heigth);
-	player_G = mlx_xpm_file_to_image(data->mlx_ptr, "./xpmimg/player_G.xpm", &img_width, &img_heigth);
+	none = mlx_xpm_file_to_image(data->mlx_ptr, "./xpmimg/none.xpm", &img_width, &img_height);
+	stop = mlx_xpm_file_to_image(data->mlx_ptr, "./xpmimg/stop.xpm", &img_width, &img_height);
+	skills = mlx_xpm_file_to_image(data->mlx_ptr, "./xpmimg/skills.xpm", &img_width, &img_height);
+	finish = mlx_xpm_file_to_image(data->mlx_ptr, "./xpmimg/finish.xpm", &img_width, &img_height);
+	player_D = mlx_xpm_file_to_image(data->mlx_ptr, "./xpmimg/player_D.xpm", &img_width, &img_height);
+	player_G = mlx_xpm_file_to_image(data->mlx_ptr, "./xpmimg/player_G.xpm", &img_width, &img_height);
 	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, none, 128, 0);
 	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, stop, 64, 0);
 	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, player_D, 128, 0);
