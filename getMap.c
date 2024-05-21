@@ -6,10 +6,11 @@
 /*   By: mranaivo <mranaivo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/18 02:54:48 by mranaivo          #+#    #+#             */
-/*   Updated: 2024/05/19 16:19:25 by mranaivo         ###   ########.fr       */
+/*   Updated: 2024/05/21 12:47:01 by mranaivo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "interface.h"
 #include "so_long.h"
 
 int notber(char *argv)
@@ -44,7 +45,7 @@ t_list *ft_copy_to_list(int argc, char *argv[])
 	fd = open(argv[1], O_RDONLY);
 	if (fd <= 0)
 	{
-		ft_printf("Probleme de lecture de fichier");
+		ft_printf("Error: Probleme de lecture de fichier\n");
 		exit(EXIT_FAILURE);
 	}
 	list = NULL;
@@ -76,6 +77,11 @@ int		ft_game_not_run(t_list *list)
 		ft_printf("Error: Map n'est pas entourrer des murs\n");
 		return (1);
 	}
+	else if (ft_check_resolution(list))
+	{
+		ft_printf("Error: Resolution non valide (hauteur > %d ou longeur > %d)\n", HEIGTH, WIDTH);
+		return (1);
+	}
 	return (0);
 }
 
@@ -85,10 +91,9 @@ char	**ft_list_to_tab(int argc, char *argv[])
 	char	**map;
 	int		i;
 
-	if (ft_game_not_run(list))
-		exit(EXIT_FAILURE);
-	list = NULL;
 	list = ft_copy_to_list(argc, argv);
+	if (ft_game_not_run(list) || !list)
+		exit(EXIT_FAILURE);
 	map = (char **) malloc(( sizeof(char *) * ft_countline(list)) + 1);
 	if (!map)
 		return (NULL);

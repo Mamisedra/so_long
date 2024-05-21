@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   interface.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mranaivo <mranaivo@student.42antananari    +#+  +:+       +#+        */
+/*   By: mranaivo <mranaivo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 11:49:20 by mranaivo          #+#    #+#             */
-/*   Updated: 2024/05/19 07:50:17 by mranaivo         ###   ########.fr       */
+/*   Updated: 2024/05/21 13:58:53 by mranaivo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@
 # define DOWN 115
 # define BLUE 0x32BDD2
 # define RED 0xAB1212
-# define WIDTH 700
-# define HEIGTH 450
+# define WIDTH 1920
+# define HEIGTH 1080
 
 # include "ft_printf/ft_printf.h"
 # include <stdlib.h>
@@ -32,29 +32,29 @@ typedef struct s_data
 	void	*mlx_ptr;
 	void	*win_ptr;
 	void	*img;
-}	t_data;
-
-typedef struct s_move
-{
-	int	x;
-	int	y;
-}	t_move;
-
-typedef struct s_image
-{
 	void	*none;
 	void	*finish;
 	void	*player_G;
 	void	*player_D;
 	void	*skills;
 	void	*stop;
-}	t_image;
+	int		img_height;
+	int		img_width;
+	char	**map;
+	int		x;
+	int		y;
+}	t_data;
+
+void	move_bas_gauche(int key, t_data *data);
+void	move_haut_droite(int key, t_data *data);
 
 int		program_quit(t_data *data);
 int		ft_escap(int key, t_data *data);
 int 	answer_key(int keysym, t_data *data);
 void 	ft_startinit(t_data *data);
-int		input_image(t_data *data);
-int		move_image(t_data *data, void *image, int key);
+void	input_image(t_data *data);
+
+void	ft_printmap_rigth(t_data *data, char **map);
+void	ft_printmap_left(t_data *data, char **map);
 
 #endif
