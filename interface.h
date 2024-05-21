@@ -6,7 +6,7 @@
 /*   By: mranaivo <mranaivo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 11:49:20 by mranaivo          #+#    #+#             */
-/*   Updated: 2024/05/21 13:58:53 by mranaivo         ###   ########.fr       */
+/*   Updated: 2024/05/21 15:28:23 by mranaivo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,17 +36,22 @@ typedef struct s_data
 	void	*finish;
 	void	*player_G;
 	void	*player_D;
+	void	*start;
 	void	*skills;
 	void	*stop;
 	int		img_height;
 	int		img_width;
 	char	**map;
+	int		collect;
 	int		x;
 	int		y;
+	int		E_x;
+	int		E_y;
 }	t_data;
 
-void	move_bas_gauche(int key, t_data *data);
-void	move_haut_droite(int key, t_data *data);
+int		move_bas_gauche(int key, t_data *data);
+int		move_haut_droite(int key, t_data *data);
+int		ft_count_collect(t_data *data);
 
 int		program_quit(t_data *data);
 int		ft_escap(int key, t_data *data);

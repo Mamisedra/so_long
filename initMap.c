@@ -6,7 +6,7 @@
 /*   By: mranaivo <mranaivo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 23:06:16 by mranaivo          #+#    #+#             */
-/*   Updated: 2024/05/21 13:46:55 by mranaivo         ###   ########.fr       */
+/*   Updated: 2024/05/21 15:41:58 by mranaivo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,14 @@ void ft_startinit(t_data *data)
 
 void	input_image(t_data *data)
 {
+	data->collect = ft_count_collect(data);
 	data->none = mlx_xpm_file_to_image(data->mlx_ptr, "./xpmimg/none.xpm", &data->img_width, &data->img_height);
 	data->stop = mlx_xpm_file_to_image(data->mlx_ptr, "./xpmimg/stop.xpm", &data->img_width, &data->img_height);
 	data->skills = mlx_xpm_file_to_image(data->mlx_ptr, "./xpmimg/skills.xpm", &data->img_width, &data->img_height);
 	data->finish = mlx_xpm_file_to_image(data->mlx_ptr, "./xpmimg/finish.xpm", &data->img_width, &data->img_height);
 	data->player_D = mlx_xpm_file_to_image(data->mlx_ptr, "./xpmimg/player_D.xpm", &data->img_width, &data->img_height);
 	data->player_G = mlx_xpm_file_to_image(data->mlx_ptr, "./xpmimg/player_G.xpm", &data->img_width, &data->img_height);
+	data->start = mlx_xpm_file_to_image(data->mlx_ptr, "./xpmimg/start.xpm", &data->img_width, &data->img_height);
 	ft_printmap_left(data, data->map);
 }
 
@@ -64,6 +66,8 @@ void	ft_printmap_rigth(t_data *data, char **map)
 				mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->player_D, width * 64, heigth * 64);
 			else if(map[heigth][width] == 'C')
 				mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->skills, width * 64, heigth * 64);
+			else if (map[heigth][width] == 'S')
+				mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->start, width * 64, heigth * 64);
 			else
 				mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->none, width * 64, heigth * 64);
 			width++;
@@ -91,6 +95,8 @@ void	ft_printmap_left(t_data *data, char **map)
 				mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->player_G, width * 64, heigth * 64);
 			else if(map[heigth][width] == 'C')
 				mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->skills, width * 64, heigth * 64);
+			else if (map[heigth][width] == 'S')
+				mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->start, width * 64, heigth * 64);
 			else
 				mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->none, width * 64, heigth * 64);
 			width++;

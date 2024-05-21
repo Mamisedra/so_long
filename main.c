@@ -6,7 +6,7 @@
 /*   By: mranaivo <mranaivo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 15:26:08 by mranaivo          #+#    #+#             */
-/*   Updated: 2024/05/21 13:46:57 by mranaivo         ###   ########.fr       */
+/*   Updated: 2024/05/21 15:40:32 by mranaivo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,7 @@ int	main(int argc, char *argv[])
 	if (!data)
 		exit(EXIT_FAILURE);
 	data->map = ft_list_to_tab(argc, argv);
- 	ft_where_P(data);
-	ft_printf("P(x = %d, y = %d)", data->x, data->y);
+	give_all_pos(data);
 	ft_startinit(data);
  	input_image(data);
 	mlx_key_hook(data->win_ptr, answer_key,data);
