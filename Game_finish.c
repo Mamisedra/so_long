@@ -6,7 +6,7 @@
 /*   By: mranaivo <mranaivo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 00:01:05 by mranaivo          #+#    #+#             */
-/*   Updated: 2024/05/26 14:17:44 by mranaivo         ###   ########.fr       */
+/*   Updated: 2024/05/29 16:43:59 by mranaivo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ int	ft_game_not_run(t_list *list)
 
 int	program_quit(t_data *data)
 {
-	mlx_destroy_window(data->mlx_ptr, data->win_ptr);
 	ft_destroy_img(data);
+	mlx_destroy_window(data->mlx_ptr, data->win_ptr);
 	mlx_loop_end(data->mlx_ptr);
 	mlx_destroy_display(data->mlx_ptr);
 	ft_free_all(data->map);

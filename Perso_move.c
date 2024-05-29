@@ -6,7 +6,7 @@
 /*   By: mranaivo <mranaivo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 22:47:07 by mranaivo          #+#    #+#             */
-/*   Updated: 2024/05/25 15:24:31 by mranaivo         ###   ########.fr       */
+/*   Updated: 2024/05/29 17:27:02 by mranaivo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ int	move_rigth(t_data *data, int key)
 	y = data->y;
 	if (key == RIGHT)
 	{
+
 		if ((data->map[y][x + 1] == '0' || data->map[y][x + 1] == 'C')
 			|| (data->map[y][x + 1] == 'S'))
 		{
@@ -72,18 +73,29 @@ int	move_left(t_data *data, int key)
 	y = data->y;
 	if (key == LEFT)
 	{
-		if ((data->map[y][x - 1] == '0' || data->map[y][x - 1] == 'C')
+		if (data->map[y][x - 1] == 'C')
+		{
+			show_anim(data->player_left, data, x, y);
+			data->map[y][x - 1] = 'P';
+			data->map[y][x] = '0';
+			data->x = x - 1;
+			data->y = y;
+			ft_print_begin(data, data->map, data->player_attaque[0]);
+			show_anim(data->player_attaque, data, x - 1, y);
+			data->collect --;
+			return (1);
+		}
+		else if ((data->map[y][x - 1] == '0' || data->map[y][x - 1] == 'C')
 			|| (data->map[y][x - 1] == 'S'))
 		{
-			if (data->map[y][x - 1] == 'C')
-				data->collect --;
+			show_anim(data->player_left, data, x, y);
 			data->map[y][x - 1] = 'P';
 			data->map[y][x] = '0';
 			data->x = x - 1;
 			data->y = y;
 		}
 	}
-	ft_printmap_left(data, data->map);
+	ft_print_begin(data, data->map, data->player_left[0]);
 	return (1);
 }
 

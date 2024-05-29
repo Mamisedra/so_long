@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   add_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mranaivo <mranaivo@student.42antananari    +#+  +:+       +#+        */
+/*   By: mranaivo <mranaivo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 20:29:26 by mranaivo          #+#    #+#             */
-/*   Updated: 2024/05/28 20:35:55 by mranaivo         ###   ########.fr       */
+/*   Updated: 2024/05/29 17:23:11 by mranaivo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	ft_print_begin(t_data *data, char **map)
+void	ft_print_begin(t_data *data, char **map, void *show)
 {
 	int	heigth;
 	int	width;
@@ -45,8 +45,8 @@ void	ft_print_begin(t_data *data, char **map)
 					i = 0;
 			}
 			else if (map[heigth][width] == 'P')
-				mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->player, width * 64, heigth * 64);
-			else if (map[heigth][width] == 'E')
+				mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, show, width * 64, heigth * 64);
+			else if (map[heigth][width] == 'E' || map[heigth][width] == 'S')
 				mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->start, width * 64, heigth * 64);
 			else if (map[heigth][width] == 'C')
 				mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->skills, width * 64, heigth * 64);
@@ -103,10 +103,9 @@ void	show_anim(void **image, t_data *data, int x, int y)
 	i = 0;
 	while (i < 4)
 	{
-		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, image[i], x, y);
+		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, image[i], x * 64, y * 64);
+		mlx_do_sync(data->mlx_ptr);
+		usleep(500000);
 		i++;
-		if (i == 3)
-			i = 0;
-		usleep(500);
 	}
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mranaivo <mranaivo@student.42antananari    +#+  +:+       +#+        */
+/*   By: mranaivo <mranaivo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/18 02:55:29 by mranaivo          #+#    #+#             */
-/*   Updated: 2024/05/28 20:32:29 by mranaivo         ###   ########.fr       */
+/*   Updated: 2024/05/29 16:57:51 by mranaivo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@
 int		ft_countline(t_list *list);
 t_list	*ft_copy_to_list(int argc, char *argv[]);
 char	**ft_list_to_tab(int argc, char *argv[]);
-void	ft_free_img(t_data *data, void **img);
+void	ft_free_img(t_data *data, void **img, int max);
 void	ft_destroy_img(t_data *data);
 
 //MAP_ERROR_UTILS
@@ -63,7 +63,7 @@ void	input_go_left(t_data *data);
 
 // add_utils:
 
-void	ft_print_begin(t_data *data, char **map);
+void	ft_print_begin(t_data *data, char **map, void *show);
 int	    ft_countline_map(char **map);
 void	input_stop(t_data *data);
 void	input_wall(t_data *data);

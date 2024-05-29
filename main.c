@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mranaivo <mranaivo@student.42antananari    +#+  +:+       +#+        */
+/*   By: mranaivo <mranaivo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 15:26:08 by mranaivo          #+#    #+#             */
-/*   Updated: 2024/05/27 13:57:29 by mranaivo         ###   ########.fr       */
+/*   Updated: 2024/05/29 16:04:59 by mranaivo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,8 +66,15 @@ int	main(int argc, char *argv[])
 // 	t_data *data;
 // 	data->mlx_ptr = mlx_init();
 // 	data->win_ptr = mlx_new_window(data->mlx_ptr, WIDTH, HEIGTH, "jeu");
+// 	input_go_rigth(data);
+// 	input_go_left(data);
 // 	input_go_up(data);
-// 	show_anim(data->player_up, data, 0, 0);
+// 	input_go_down(data);
+// 	show_anim(data->player_rigth, data, 0, 0);
+// 	show_anim(data->player_left, data, 64, 0);
+// 	show_anim(data->player_up, data, 128, 0);
+// 	show_anim(data->player_down, data, 192, 0);
+// 	show_anim(data->player_attaque, data, 232, 0);
 // 	mlx_loop(data->mlx_ptr);
 // 	return (0);
 // }

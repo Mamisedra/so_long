@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   input_image.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mranaivo <mranaivo@student.42antananari    +#+  +:+       +#+        */
+/*   By: mranaivo <mranaivo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 22:34:40 by mranaivo          #+#    #+#             */
-/*   Updated: 2024/05/28 20:30:59 by mranaivo         ###   ########.fr       */
+/*   Updated: 2024/05/29 16:58:41 by mranaivo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,21 +25,13 @@ void	input_image(t_data *data)
 	 		"./xpmimg/start.xpm", &data->img_width, &data->img_height);
 	data->player = mlx_xpm_file_to_image(data->mlx_ptr,
 			"./xpmimg/player.xpm", &data->img_width, &data->img_height);
-	data->player_attaque[0] = mlx_xpm_file_to_image(data->mlx_ptr,
-			"./xpmimg/attaque_0.xpm", &data->img_width, &data->img_height);
-	data->player_attaque[1] = mlx_xpm_file_to_image(data->mlx_ptr,
-			"./xpmimg/attaque_1.xpm", &data->img_width, &data->img_height);
-	data->player_attaque[2] = mlx_xpm_file_to_image(data->mlx_ptr,
-			"./xpmimg/attaque_2.xpm", &data->img_width, &data->img_height);
-	data->player_attaque[3] = mlx_xpm_file_to_image(data->mlx_ptr,
-			"./xpmimg/attaque_3.xpm", &data->img_width, &data->img_height);
 	input_go_down(data);
 	input_go_left(data);
 	input_go_rigth(data);
 	input_go_up(data);
 	input_stop(data);
 	input_wall(data);
-	ft_print_begin(data, data->map);
+	ft_print_begin(data, data->map, data->player);
 }
 
 void	input_go_up(t_data *data)
@@ -52,6 +44,14 @@ void	input_go_up(t_data *data)
 			"./xpmimg/up_2.xpm", &data->img_width, &data->img_height);
 	data->player_up[3] = mlx_xpm_file_to_image(data->mlx_ptr,
 			"./xpmimg/up_3.xpm", &data->img_width, &data->img_height);
+	data->player_attaque[0] = mlx_xpm_file_to_image(data->mlx_ptr,
+			"./xpmimg/attaque_0.xpm", &data->img_width, &data->img_height);
+	data->player_attaque[1] = mlx_xpm_file_to_image(data->mlx_ptr,
+			"./xpmimg/attaque_1.xpm", &data->img_width, &data->img_height);
+	data->player_attaque[2] = mlx_xpm_file_to_image(data->mlx_ptr,
+			"./xpmimg/attaque_2.xpm", &data->img_width, &data->img_height);
+	data->player_attaque[3] = mlx_xpm_file_to_image(data->mlx_ptr,
+			"./xpmimg/attaque_3.xpm", &data->img_width, &data->img_height);
 }
 
 void	input_go_down(t_data *data)

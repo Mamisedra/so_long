@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Game_to_list.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mranaivo <mranaivo@student.42antananari    +#+  +:+       +#+        */
+/*   By: mranaivo <mranaivo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 00:50:44 by mranaivo          #+#    #+#             */
-/*   Updated: 2024/05/27 23:21:03 by mranaivo         ###   ########.fr       */
+/*   Updated: 2024/05/29 16:30:22 by mranaivo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,12 +83,12 @@ t_list	*ft_copy_to_list(int argc, char *argv[])
 	return (free(line), list);
 }
 
-void	ft_free_img(t_data *data, void **img)
+void	ft_free_img(t_data *data, void **img, int max)
 {
 	int	i;
 
 	i = 0;
-	while (i < 4)
+	while (i < max)
 	{
 		mlx_destroy_image(data->mlx_ptr, img[i]);
 		i++;
@@ -97,13 +97,13 @@ void	ft_free_img(t_data *data, void **img)
 
 void	ft_destroy_img(t_data *data)
 {
-	ft_free_img(data, data->player_up);
-	ft_free_img(data, data->player_down);
-	ft_free_img(data, data->player_rigth);
-	ft_free_img(data, data->player_left);
-	ft_free_img(data, data->player_attaque);
-	ft_free_img(data, data->stop);
-	ft_free_img(data, data->wall);
+	ft_free_img(data, data->player_up, 4);
+	ft_free_img(data, data->player_down, 4);
+	ft_free_img(data, data->player_rigth, 4);
+	ft_free_img(data, data->player_left, 4);
+	ft_free_img(data, data->player_attaque, 4);
+	ft_free_img(data, data->stop, 4);
+	ft_free_img(data, data->wall, 6);
 	mlx_destroy_image(data->mlx_ptr, data->none);
 	mlx_destroy_image(data->mlx_ptr, data->skills);
 	mlx_destroy_image(data->mlx_ptr, data->finish);
