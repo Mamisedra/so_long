@@ -6,7 +6,7 @@
 /*   By: mranaivo <mranaivo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 11:49:20 by mranaivo          #+#    #+#             */
-/*   Updated: 2024/05/29 16:38:57 by mranaivo         ###   ########.fr       */
+/*   Updated: 2024/06/01 16:11:35 by mranaivo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,10 +65,7 @@ int		ft_game_not_run(t_list *list);
 // MAP INIT
 
 void	ft_startinit(t_data *data);
-void	ft_printmap_rigth(t_data *data, char **map);
-void	ft_printmap_left(t_data *data, char **map);
-void	ft_printmap_down(t_data *data, char **map);
-void	ft_printmap_up(t_data *data, char **map);
+void	position_swap(t_data *data, int x, int y, char c);
 
 // PERSO_MOVE
 

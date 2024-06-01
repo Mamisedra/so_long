@@ -6,7 +6,7 @@
 /*   By: mranaivo <mranaivo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 22:34:40 by mranaivo          #+#    #+#             */
-/*   Updated: 2024/05/29 16:58:41 by mranaivo         ###   ########.fr       */
+/*   Updated: 2024/06/01 16:11:25 by mranaivo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	input_image(t_data *data)
 	data->finish = mlx_xpm_file_to_image(data->mlx_ptr,
 			"./xpmimg/finish.xpm", &data->img_width, &data->img_height);
 	data->start = mlx_xpm_file_to_image(data->mlx_ptr,
-	 		"./xpmimg/start.xpm", &data->img_width, &data->img_height);
+			"./xpmimg/start.xpm", &data->img_width, &data->img_height);
 	data->player = mlx_xpm_file_to_image(data->mlx_ptr,
 			"./xpmimg/player.xpm", &data->img_width, &data->img_height);
 	input_go_down(data);

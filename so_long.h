@@ -6,7 +6,7 @@
 /*   By: mranaivo <mranaivo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/18 02:55:29 by mranaivo          #+#    #+#             */
-/*   Updated: 2024/05/29 16:57:51 by mranaivo         ###   ########.fr       */
+/*   Updated: 2024/06/01 16:11:29 by mranaivo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ void	input_go_left(t_data *data);
 
 // add_utils:
 
+void	ft_map_print(t_data *data, char **map, int heigth, int width);
 void	ft_print_begin(t_data *data, char **map, void *show);
 int	    ft_countline_map(char **map);
 void	input_stop(t_data *data);
