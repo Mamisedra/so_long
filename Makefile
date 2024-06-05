@@ -7,9 +7,10 @@ FLAGS	= -Wall -Wextra -Werror -g
 RM		= rm -rf
 MLX		= -L./minilibx-linux -lmlx -lXext -lX11 -lm
 
-SRCS	= Game_finish.c Game_to_list.c input_image.c Perso_move.c add_utils.c\
-		Map_error_utils.c Map_error.c Map_print.c Player_pos.c main.c multibonus.c\
+SRCS	= Game_finish.c Game_to_list.c input_image.c Perso_move.c Perso_move_utils.c add_utils.c\
+		Map_error_utils.c Map_error.c Map_print.c Map_print_utils.c Player_pos.c main.c Map_access.c\
 		$(GNL_DIR)/get_next_line_utils_bonus.c $(GNL_DIR)/get_next_line_bonus.c
+
 OBJS	= ${SRCS:.c=.o}
 
 all : ${NAME}

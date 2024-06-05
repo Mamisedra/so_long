@@ -6,22 +6,21 @@
 /*   By: mranaivo <mranaivo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 22:47:07 by mranaivo          #+#    #+#             */
-/*   Updated: 2024/06/01 16:57:42 by mranaivo         ###   ########.fr       */
+/*   Updated: 2024/06/05 13:38:10 by mranaivo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf/ft_printf.h"
-#include "interface.h"
-#include "libft/libft.h"
-#include "minilibx-linux/mlx.h"
 #include "so_long.h"
+#include "interface.h"
 
 int	answer_key(int keysym, t_data *data)
 {
 	static int	i = 0;
+	char		*a;
 
 	if (keysym == ESC)
 		program_quit(data);
+	ft_void(data, keysym);
 	if (keysym == UP)
 		i += move_up(data, keysym);
 	else if (keysym == DOWN)
@@ -30,10 +29,17 @@ int	answer_key(int keysym, t_data *data)
 		i += move_left(data, keysym);
 	else if (keysym == RIGHT)
 		i += move_rigth(data, keysym);
-	if (data->map[data->y][data->x] != '1')
-		mlx_string_put(data->mlx_ptr, data->win_ptr, 20,55, BLUE, ft_strjoin(ft_strdup(" Nombre de pas : "),ft_itoa(i)));
-	mlx_string_put(data->mlx_ptr, data->win_ptr, 20,30, BLUE, ft_strjoin(ft_strdup(" Adversaire : "),ft_itoa(data->collect)));
-	return (0);
+	ft_void(data, keysym);
+	a = ft_itoa(i);
+	data->move = ft_strjoin_g(ft_strdup("Move : "), a);
+	mlx_string_put(data->mlx_ptr, data->win_ptr, 20, 55, BLUE, data->move);
+	free(data->move);
+	free(a);
+	a = ft_itoa(data->collect);
+	data->coll = ft_strjoin_g(ft_strdup("Adversaire : "), a);
+	mlx_string_put(data->mlx_ptr, data->win_ptr, 20, 30, BLUE, data->coll);
+	free(data->coll);
+	return (free(a), 0);
 }
 
 int	move_rigth(t_data *data, int key)
@@ -51,18 +57,18 @@ int	move_rigth(t_data *data, int key)
 			position_swap(data, x, y, 'R');
 			ft_print_begin(data, data->map, data->player_attaque[0]);
 			show_anim(data->player_attaque, data, x + 1, y);
-			data->collect --;
-			return (1);
+			return (data->collect --, 1);
 		}
 		if ((data->map[y][x + 1] == '0' || data->map[y][x + 1] == 'C')
-			|| (data->map[y][x + 1] == 'S'))
+			|| (data->map[y][x + 1] == 'S' || data->map[y][x + 1] == 'E'))
 		{
 			show_anim(data->player_rigth, data, x, y);
 			position_swap(data, x, y, 'R');
 		}
+		else
+			return (0);
 	}
-	ft_print_begin(data, data->map, data->player_rigth[0]);
-	return (1);
+	return (ft_print_begin(data, data->map, data->player_rigth[0]), 1);
 }
 
 int	move_left(t_data *data, int key)
@@ -80,18 +86,18 @@ int	move_left(t_data *data, int key)
 			position_swap(data, x, y, 'L');
 			ft_print_begin(data, data->map, data->player_attaque[0]);
 			show_anim(data->player_attaque, data, x - 1, y);
-			data->collect --;
-			return (1);
+			return (data->collect --, 1);
 		}
 		if ((data->map[y][x - 1] == '0' || data->map[y][x - 1] == 'C')
-			|| (data->map[y][x - 1] == 'S'))
+			|| (data->map[y][x - 1] == 'S' || data->map[y][x - 1] == 'E'))
 		{
 			show_anim(data->player_left, data, x, y);
 			position_swap(data, x, y, 'L');
 		}
+		else
+			return (0);
 	}
-	ft_print_begin(data, data->map, data->player_left[0]);
-	return (1);
+	return (ft_print_begin(data, data->map, data->player_left[0]), 1);
 }
 
 int	move_up(t_data *data, int key)
@@ -109,18 +115,18 @@ int	move_up(t_data *data, int key)
 			position_swap(data, x, y, 'U');
 			ft_print_begin(data, data->map, data->player_attaque[0]);
 			show_anim(data->player_attaque, data, x, y - 1);
-			data->collect --;
-			return (1);
+			return (data->collect --, 1);
 		}
 		if ((data->map[y - 1][x] == 'C' || data->map[y - 1][x] == '0')
-			|| (data->map[y - 1][x] == 'S'))
+			|| (data->map[y - 1][x] == 'S' || data->map[y - 1][x] == 'E'))
 		{
 			show_anim(data->player_up, data, x, y);
 			position_swap(data, x, y, 'U');
 		}
+		else
+			return (0);
 	}
-	ft_print_begin(data, data->map, data->player_up[0]);
-	return (1);
+	return (ft_print_begin(data, data->map, data->player_up[0]), 1);
 }
 
 int	move_down(t_data *data, int key)
@@ -138,16 +144,16 @@ int	move_down(t_data *data, int key)
 			position_swap(data, x, y, 'D');
 			ft_print_begin(data, data->map, data->player_attaque[0]);
 			show_anim(data->player_attaque, data, x, y + 1);
-			data->collect --;
-			return (1);
+			return (data->collect --, 1);
 		}
 		if ((data->map[y + 1][x] == '0' || data->map[y + 1][x] == 'C')
-			|| (data->map[y + 1][x] == 'S'))
+			|| (data->map[y + 1][x] == 'S' || data->map[y + 1][x] == 'E'))
 		{
 			show_anim(data->player_down, data, x, y);
 			position_swap(data, x, y, 'D');
 		}
+		else
+			return (0);
 	}
-	ft_print_begin(data, data->map, data->player_down[0]);
-	return (1);
+	return (ft_print_begin(data, data->map, data->player_down[0]), 1);
 }

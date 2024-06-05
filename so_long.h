@@ -6,7 +6,7 @@
 /*   By: mranaivo <mranaivo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/18 02:55:29 by mranaivo          #+#    #+#             */
-/*   Updated: 2024/06/01 16:11:29 by mranaivo         ###   ########.fr       */
+/*   Updated: 2024/06/05 15:26:00 by mranaivo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,6 @@ void	give_all_pos(t_data *data);
 void	ft_where_p(t_data *data);
 void	ft_where_e(t_data *data);
 
-
 //INPUT_IMAGE :
 
 void	input_image(t_data *data);
@@ -65,9 +64,21 @@ void	input_go_left(t_data *data);
 
 void	ft_map_print(t_data *data, char **map, int heigth, int width);
 void	ft_print_begin(t_data *data, char **map, void *show);
-int	    ft_countline_map(char **map);
+int		ft_countline_map(char **map);
 void	input_stop(t_data *data);
 void	input_wall(t_data *data);
 void	show_anim(void **image, t_data *data, int x, int y);
+
+//MAP_acces:
+
+void	police_of_game(char **map,int x, int y, int **visite);
+int		**get_visit(int heigth, int width);
+int		access_chr(char **map, int heigth, int width, int **visite);
+void	check_all_access(t_data *data);
+
+//Map_print_utils:
+
+void	ft_add_map_print(t_data *data, char **map, int heigth, int width);
+void	ft_add_print_begin(t_data *data, void *show, int heigth, int width);
 
 #endif

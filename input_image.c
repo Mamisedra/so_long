@@ -6,10 +6,11 @@
 /*   By: mranaivo <mranaivo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 22:34:40 by mranaivo          #+#    #+#             */
-/*   Updated: 2024/06/01 16:11:25 by mranaivo         ###   ########.fr       */
+/*   Updated: 2024/06/05 10:01:26 by mranaivo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "minilibx-linux/mlx.h"
 #include "so_long.h"
 
 void	input_image(t_data *data)
@@ -25,6 +26,8 @@ void	input_image(t_data *data)
 			"./xpmimg/start.xpm", &data->img_width, &data->img_height);
 	data->player = mlx_xpm_file_to_image(data->mlx_ptr,
 			"./xpmimg/player.xpm", &data->img_width, &data->img_height);
+	data->victory = mlx_xpm_file_to_image(data->mlx_ptr,
+			"./xpmimg/Victory", &data->img_width, &data->img_height);
 	input_go_down(data);
 	input_go_left(data);
 	input_go_rigth(data);

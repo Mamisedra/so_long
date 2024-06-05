@@ -6,7 +6,7 @@
 /*   By: mranaivo <mranaivo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 11:49:20 by mranaivo          #+#    #+#             */
-/*   Updated: 2024/06/01 16:11:35 by mranaivo         ###   ########.fr       */
+/*   Updated: 2024/06/05 11:04:32 by mranaivo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ typedef struct s_data
 	void	*finish;
 	void	*start;
 	void	*skills;
+	void	*victory;
 	void	*player;
 	void	*player_up[4];
 	void	*player_down[4];
@@ -44,9 +45,11 @@ typedef struct s_data
 	void	*player_attaque[4];
 	void	*wall[6];
 	void	*stop[4];
+	char	**map;
+	char	*coll;
+	char	*move;
 	int		img_height;
 	int		img_width;
-	char	**map;
 	int		collect;
 	int		x;
 	int		y;
@@ -74,5 +77,10 @@ int		move_up(t_data *data, int key);
 int		move_down(t_data *data, int key);
 int		move_left(t_data *data, int key);
 int		move_rigth(t_data *data, int key);
+
+// PERSO_MOVE_UTLIS
+
+void	ft_void(t_data *data, int key);
+void	ft_printofkey(t_data *data, int key);
 
 #endif
