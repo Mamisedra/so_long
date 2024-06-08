@@ -6,7 +6,7 @@
 /*   By: mranaivo <mranaivo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 00:50:44 by mranaivo          #+#    #+#             */
-/*   Updated: 2024/06/01 16:11:46 by mranaivo         ###   ########.fr       */
+/*   Updated: 2024/06/08 14:41:24 by mranaivo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,4 +109,6 @@ void	ft_destroy_img(t_data *data)
 	mlx_destroy_image(data->mlx_ptr, data->finish);
 	mlx_destroy_image(data->mlx_ptr, data->start);
 	mlx_destroy_image(data->mlx_ptr, data->player);
+	mlx_destroy_image(data->mlx_ptr, data->enemy_left);
+	mlx_destroy_image(data->mlx_ptr, data->enemy_right);
 }

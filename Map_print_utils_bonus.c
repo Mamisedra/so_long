@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Map_print_utils.c                                  :+:      :+:    :+:   */
+/*   Map_print_utils_bonus.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mranaivo <mranaivo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/05 11:49:06 by mranaivo          #+#    #+#             */
-/*   Updated: 2024/06/08 14:10:29 by mranaivo         ###   ########.fr       */
+/*   Created: 2024/06/08 14:13:01 by mranaivo          #+#    #+#             */
+/*   Updated: 2024/06/08 16:49:40 by mranaivo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,4 +79,7 @@ void	ft_add_print_begin(t_data *data, void *show, int heigth, int width)
 	else if (data->map[heigth][width] == '0')
 		mlx_put_image_to_window(data->mlx_ptr, \
 	data->win_ptr, data->none, width * 64, heigth * 64);
+    else if (data->map[heigth][width] == 'K')
+        mlx_put_image_to_window(data->mlx_ptr, \
+    data->win_ptr, data->enemy_left, width * 64, heigth * 64);
 }

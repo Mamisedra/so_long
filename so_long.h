@@ -6,7 +6,7 @@
 /*   By: mranaivo <mranaivo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/18 02:55:29 by mranaivo          #+#    #+#             */
-/*   Updated: 2024/06/05 15:26:00 by mranaivo         ###   ########.fr       */
+/*   Updated: 2024/06/08 15:03:19 by mranaivo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define SO_LONG_H
 
 # include "interface.h"
+# include "bonus.h"
 # include "libft/libft.h"
 # include "GetNextLine/get_next_line_bonus.h"
 # include "ft_printf/ft_printf.h"
@@ -80,5 +81,6 @@ void	check_all_access(t_data *data);
 
 void	ft_add_map_print(t_data *data, char **map, int heigth, int width);
 void	ft_add_print_begin(t_data *data, void *show, int heigth, int width);
+int     ft_count_obs(char **map);
 
 #endif

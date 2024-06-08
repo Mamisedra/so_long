@@ -6,7 +6,7 @@
 /*   By: mranaivo <mranaivo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 22:34:40 by mranaivo          #+#    #+#             */
-/*   Updated: 2024/06/05 10:01:26 by mranaivo         ###   ########.fr       */
+/*   Updated: 2024/06/08 14:42:47 by mranaivo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,6 @@ void	input_image(t_data *data)
 			"./xpmimg/start.xpm", &data->img_width, &data->img_height);
 	data->player = mlx_xpm_file_to_image(data->mlx_ptr,
 			"./xpmimg/player.xpm", &data->img_width, &data->img_height);
-	data->victory = mlx_xpm_file_to_image(data->mlx_ptr,
-			"./xpmimg/Victory", &data->img_width, &data->img_height);
 	input_go_down(data);
 	input_go_left(data);
 	input_go_rigth(data);
@@ -67,6 +65,10 @@ void	input_go_down(t_data *data)
 			"./xpmimg/down_2.xpm", &data->img_width, &data->img_height);
 	data->player_down[3] = mlx_xpm_file_to_image(data->mlx_ptr,
 			"./xpmimg/down_3.xpm", &data->img_width, &data->img_height);
+	data->enemy_left = mlx_xpm_file_to_image(data->mlx_ptr,
+			"./xpmimg/enemy_left.xpm", &data->img_width, &data->img_height);
+	data->enemy_right = mlx_xpm_file_to_image(data->mlx_ptr,
+			"./xpmimg/enemy_rigth.xpm", &data->img_width, &data->img_height);
 }
 
 void	input_go_rigth(t_data *data)

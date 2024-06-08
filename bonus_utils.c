@@ -1,17 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Perso_move_utils.c                                 :+:      :+:    :+:   */
+/*   bonus_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mranaivo <mranaivo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/05 10:37:58 by mranaivo          #+#    #+#             */
-/*   Updated: 2024/06/08 14:01:54 by mranaivo         ###   ########.fr       */
+/*   Created: 2024/06/08 14:02:11 by mranaivo          #+#    #+#             */
+/*   Updated: 2024/06/08 16:17:11 by mranaivo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-#include "interface.h"
 
 void	ft_printofkey(t_data *data, int key)
 {
@@ -27,6 +26,8 @@ void	ft_printofkey(t_data *data, int key)
 
 void	ft_void(t_data *data, int key)
 {
+	static int i = 0;
+
 	if ((data->e_x == data->x && data->e_y == data->y) && data->collect == 0)
 	{
 		ft_printf("You win CONGRATS\n");
@@ -40,6 +41,11 @@ void	ft_void(t_data *data, int key)
 	if (data->collect == 0)
 	{
 		data->map[data->e_y][data->e_x] = 'E';
+		if (i == 0)
+		{
+			place_enemy_final(data->map, ft_countline_map(data->map), ft_strlen_list(data->map[0]));
+			i = 1;
+		}
 		ft_printofkey(data, key);
 	}
 }

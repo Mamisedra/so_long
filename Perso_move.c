@@ -6,7 +6,7 @@
 /*   By: mranaivo <mranaivo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 22:47:07 by mranaivo          #+#    #+#             */
-/*   Updated: 2024/06/05 13:38:10 by mranaivo         ###   ########.fr       */
+/*   Updated: 2024/06/08 11:35:46 by mranaivo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 int	answer_key(int keysym, t_data *data)
 {
 	static int	i = 0;
-	char		*a;
 
 	if (keysym == ESC)
 		program_quit(data);
@@ -30,16 +29,8 @@ int	answer_key(int keysym, t_data *data)
 	else if (keysym == RIGHT)
 		i += move_rigth(data, keysym);
 	ft_void(data, keysym);
-	a = ft_itoa(i);
-	data->move = ft_strjoin_g(ft_strdup("Move : "), a);
-	mlx_string_put(data->mlx_ptr, data->win_ptr, 20, 55, BLUE, data->move);
-	free(data->move);
-	free(a);
-	a = ft_itoa(data->collect);
-	data->coll = ft_strjoin_g(ft_strdup("Adversaire : "), a);
-	mlx_string_put(data->mlx_ptr, data->win_ptr, 20, 30, BLUE, data->coll);
-	free(data->coll);
-	return (free(a), 0);
+	ft_printf("Move : %d\nCollect : %d\n", i, data->collect);
+	return (0);
 }
 
 int	move_rigth(t_data *data, int key)

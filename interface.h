@@ -6,7 +6,7 @@
 /*   By: mranaivo <mranaivo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 11:49:20 by mranaivo          #+#    #+#             */
-/*   Updated: 2024/06/05 11:04:32 by mranaivo         ###   ########.fr       */
+/*   Updated: 2024/06/08 16:59:35 by mranaivo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,25 @@
 
 # include "ft_printf/ft_printf.h"
 # include "libft/libft.h"
+# include "bonus.h"
 # include <stdlib.h>
 # include "./minilibx-linux/mlx.h"
+
+typedef	struct	s_enemy
+{
+	int	p1_x;
+	int	p1_y;
+	int	p2_x;
+	int p2_y;
+	int p3_x;
+	int p3_y;
+	int p4_x;
+	int p4_y;
+	int p5_x;
+	int p5_y;
+	int p6_x;
+	int p6_y;
+}	t_enemy;
 
 typedef struct s_data
 {
@@ -36,8 +53,10 @@ typedef struct s_data
 	void	*finish;
 	void	*start;
 	void	*skills;
-	void	*victory;
+	t_enemy	*enemy;
 	void	*player;
+	void    *enemy_left;
+	void	*enemy_right;
 	void	*player_up[4];
 	void	*player_down[4];
 	void	*player_rigth[4];
@@ -56,6 +75,15 @@ typedef struct s_data
 	int		e_x;
 	int		e_y;
 }			t_data;
+
+//===================BONUS====================
+
+void	place_enemy(t_data *data);
+void	place_enemy_2(t_data *data);
+void    place_enemy_final(char **map, int heigth, int width);
+void	place_define(t_data *data);
+int		gameover(t_data *data);
+
 
 	// GAME FINISH
 
