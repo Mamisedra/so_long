@@ -1,6 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
+/*   add_utils_bonus.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mranaivo <mranaivo@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/06/20 14:41:07 by mranaivo          #+#    #+#             */
+/*   Updated: 2024/06/20 14:41:44 by mranaivo         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
 /*   add_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mranaivo <mranaivo@student.42.fr>          +#+  +:+       +#+        */
@@ -60,7 +72,7 @@ void	show_anim(void **image, t_data *data, int x, int y)
 		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,
 			image[i], x * 64, y * 64);
 		mlx_do_sync(data->mlx_ptr);
-		usleep(100000);
+		usleep(1000);
 		i++;
 	}
 	mlx_do_sync(data->mlx_ptr);

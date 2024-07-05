@@ -11,9 +11,9 @@ SRCS	= Game_finish.c Game_to_list.c input_image.c Perso_move.c Perso_move_utils.
 		Map_error_utils.c Map_error.c Map_print.c Map_print_utils.c Player_pos.c main.c Map_access.c\
 		$(GNL_DIR)/get_next_line_utils_bonus.c $(GNL_DIR)/get_next_line_bonus.c
 
-SRCSB	= Game_finish.c Game_to_list.c input_image.c add_utils.c Monstre_bonus.c\
+SRCSB	= function_bonus.c Game_finish.c Game_to_list.c input_image.c add_utils_bonus.c Monstre_bonus.c\
 		Map_error_utils.c Map_error.c Map_print.c Map_print_utils_bonus.c Player_pos.c main_bonus.c Map_access.c\
-		$(GNL_DIR)/get_next_line_utils_bonus.c $(GNL_DIR)/get_next_line_bonus.c bonus.c bonus_utils.c Monstre_utlis_bonus.c
+		$(GNL_DIR)/get_next_line_utils_bonus.c $(GNL_DIR)/get_next_line_bonus.c bonus.c bonus_utils.c Monstre_utils_bonus.c
 
 OBJS	= ${SRCS:.c=.o}
 OBJSB	= ${SRCSB:.c=.o}

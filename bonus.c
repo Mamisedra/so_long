@@ -6,7 +6,7 @@
 /*   By: mranaivo <mranaivo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 12:10:49 by mranaivo          #+#    #+#             */
-/*   Updated: 2024/06/08 11:32:51 by mranaivo         ###   ########.fr       */
+/*   Updated: 2024/06/21 13:06:11 by mranaivo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,17 +28,11 @@ int	answer_key(int keysym, t_data *data)
 		i += move_left(data, keysym);
 	else if (keysym == RIGHT)
 		i += move_rigth(data, keysym);
+	move(data);
 	ft_void(data, keysym);
-	a = ft_itoa(i);
-	data->move = ft_strjoin_g(ft_strdup("Move : "), a);
-	mlx_string_put(data->mlx_ptr, data->win_ptr, 20, 55, BLUE, data->move);
-	free(data->move);
-	free(a);
-	a = ft_itoa(data->collect);
-	data->coll = ft_strjoin_g(ft_strdup("Adversaire : "), a);
-	mlx_string_put(data->mlx_ptr, data->win_ptr, 20, 30, BLUE, data->coll);
-	free(data->coll);
-	return (free(a), 0);
+	data->nb_pas = i;
+	print_all(data);
+	return (0);
 }
 
 int	move_rigth(t_data *data, int key)

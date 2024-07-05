@@ -6,7 +6,7 @@
 /*   By: mranaivo <mranaivo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 11:49:20 by mranaivo          #+#    #+#             */
-/*   Updated: 2024/06/08 16:59:35 by mranaivo         ###   ########.fr       */
+/*   Updated: 2024/06/20 16:11:57 by mranaivo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,29 +21,13 @@
 # define BLUE 0x32BDD2
 # define RED 0xAB1212
 # define WIDTH 1920
+# define NB_PAS 6
 # define HEIGTH 1080
 
 # include "ft_printf/ft_printf.h"
 # include "libft/libft.h"
-# include "bonus.h"
 # include <stdlib.h>
 # include "./minilibx-linux/mlx.h"
-
-typedef	struct	s_enemy
-{
-	int	p1_x;
-	int	p1_y;
-	int	p2_x;
-	int p2_y;
-	int p3_x;
-	int p3_y;
-	int p4_x;
-	int p4_y;
-	int p5_x;
-	int p5_y;
-	int p6_x;
-	int p6_y;
-}	t_enemy;
 
 typedef struct s_data
 {
@@ -53,9 +37,8 @@ typedef struct s_data
 	void	*finish;
 	void	*start;
 	void	*skills;
-	t_enemy	*enemy;
 	void	*player;
-	void    *enemy_left;
+	void	*enemy_left;
 	void	*enemy_right;
 	void	*player_up[4];
 	void	*player_down[4];
@@ -74,18 +57,13 @@ typedef struct s_data
 	int		y;
 	int		e_x;
 	int		e_y;
+	int		nb_pas;
+	char	road_0[NB_PAS + 1];
+	char	road_1[NB_PAS + 1];
+	int		enemy_pos_x[6];
+	int		enemy_pos_y[6];
 }			t_data;
-
-//===================BONUS====================
-
-void	place_enemy(t_data *data);
-void	place_enemy_2(t_data *data);
-void    place_enemy_final(char **map, int heigth, int width);
-void	place_define(t_data *data);
-int		gameover(t_data *data);
-
-
-	// GAME FINISH
+// GAME FINISH
 
 int		ft_count_collect(t_data *data);
 int		program_quit(t_data *data);

@@ -6,7 +6,7 @@
 /*   By: mranaivo <mranaivo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/18 02:55:29 by mranaivo          #+#    #+#             */
-/*   Updated: 2024/06/08 15:03:19 by mranaivo         ###   ########.fr       */
+/*   Updated: 2024/06/21 13:05:01 by mranaivo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,34 @@
 # define SO_LONG_H
 
 # include "interface.h"
-# include "bonus.h"
 # include "libft/libft.h"
 # include "GetNextLine/get_next_line_bonus.h"
 # include "ft_printf/ft_printf.h"
 # include <stdio.h>
 # include <stdlib.h>
 # include <fcntl.h>
+
+//==============================BONUS====================================
+char	*ft_getroad(char **map, int pos_x, int pos_y);
+int		move(t_data *data);
+void	ft_strcpy(t_data *data, char *road_0, char *road_1);
+void	move_backward(t_data *data, int *i);
+void	move_forward(t_data *data, int *i);
+void	initialize_roads(t_data *data);
+char	*ft_getroad(char **map, int pos_x, int pos_y);
+char	get_next_move(char **map, int *pos_x, int *pos_y, char last_move);
+void	move_go(t_data *data, int *pos_x, int *pos_y, char c);
+void	move_back(t_data *data, int *pos_x, int *pos_y, char c);
+void	print_all(t_data *data);
+
+void	place_enemy(t_data *data);
+void	place_define(t_data *data);
+void	place_enemy_final(char **map, int heigth, int width);
+int		gameover(t_data *data);
+void	place_enemy_2(t_data *data);
+int		move(t_data *data);
+void	show_move(char **map, int pos_x, int pos_y, int i);
+void	move_enemy_1(t_data *data, char **map, int pos_x, int pos_y);
 
 //GAME_TO_LIST
 
@@ -72,7 +93,7 @@ void	show_anim(void **image, t_data *data, int x, int y);
 
 //MAP_acces:
 
-void	police_of_game(char **map,int x, int y, int **visite);
+void	police_of_game(char **map, int x, int y, int **visite);
 int		**get_visit(int heigth, int width);
 int		access_chr(char **map, int heigth, int width, int **visite);
 void	check_all_access(t_data *data);
@@ -81,6 +102,6 @@ void	check_all_access(t_data *data);
 
 void	ft_add_map_print(t_data *data, char **map, int heigth, int width);
 void	ft_add_print_begin(t_data *data, void *show, int heigth, int width);
-int     ft_count_obs(char **map);
+int		ft_count_obs(char **map);
 
 #endif

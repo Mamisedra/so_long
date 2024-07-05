@@ -6,7 +6,7 @@
 /*   By: mranaivo <mranaivo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 12:10:10 by mranaivo          #+#    #+#             */
-/*   Updated: 2024/06/05 15:41:42 by mranaivo         ###   ########.fr       */
+/*   Updated: 2024/06/21 13:21:44 by mranaivo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,13 +49,13 @@ int	**get_visit(int heigth, int width)
 	int	**visite;
 	int	i;
 
-	visite = malloc(heigth * sizeof(int *));
+	visite = (int **)malloc((heigth + 1) * sizeof(int *));
 	if (!visite)
 		return (NULL);
 	i = 0;
 	while (i < heigth)
 	{
-		visite[i] = ft_calloc(width, sizeof(int));
+		visite[i] = ft_calloc(width + 1, sizeof(int));
 		if (!visite[i])
 		{
 			ft_free_visite(visite, i);
@@ -102,7 +102,7 @@ void	check_all_access(t_data *data)
 		ft_printf("Error: test access bloquer\n");
 		return ;
 	}
-	police_of_game(data->map, data->x, data->y, visite);
+	police_of_game(data->map, data->y, data->x, visite);
 	if (!access_chr(data->map, heigth, width, visite))
 	{
 		ft_printf("ERROR: E ou C inaccessible\n");

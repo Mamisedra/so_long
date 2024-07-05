@@ -6,7 +6,7 @@
 /*   By: mranaivo <mranaivo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 11:49:06 by mranaivo          #+#    #+#             */
-/*   Updated: 2024/06/08 14:10:29 by mranaivo         ###   ########.fr       */
+/*   Updated: 2024/06/21 13:06:24 by mranaivo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,18 +17,18 @@ int	ft_count_obs(char **map)
 	int	heigth;
 	int	width;
 	int	i;
-	int j;
+	int	j;
 	int	obs;
 
 	heigth = ft_countline_map(map);
-	width =  ft_strlen_list(map[0]);
+	width = ft_strlen_list(map[0]);
 	i = 1;
 	obs = 0;
 	while (i < (heigth - 1))
 	{
 		j = 1;
-        while (j < (width - 1))
-        {
+		while (j < (width - 1))
+		{
 			if (map[i][j] == '1')
 				obs++;
 			j++;
